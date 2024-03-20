@@ -9,14 +9,41 @@ public class Penjumlahan<T>
     }
 }
 
+public class SimpleDataBase<T>
+{
+    private List<T> storedData;
+    private List<DateTime> inputData;
+
+    public SimpleDataBase()
+    {
+        storedData = new List<T>();
+        inputData = new List<DateTime>();
+    }
+
+    public void AddNewData(T input)
+    {
+        storedData.Add(input);
+        inputData.Add(DateTime.Now);
+    }
+
+    public void PrintAllData()
+    {
+        for (int i = 0; i < storedData.Count; i++) {
+            Console.WriteLine("Data " + i + "berisi: " + storedData[i] + ", yang disimpan pada waktu " + inputData[i]);
+        }
+    }
+}
+
 class main ()
 {
     static void Main(string[] args)
     {
         Penjumlahan<double> test = new Penjumlahan<double>();
-        double a = 3.1;
-        double b = 3.2;
-        double c = 3.7;
+        double a = 13;
+        double b = 2;
+        double c = 22;
         Console.WriteLine(test.JumlahTigaAngka(a, b, c));
+
+
     }
 }
